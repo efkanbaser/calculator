@@ -1,3 +1,4 @@
+let inputString = "";
 let operator = "";
 let n1 = 0;
 let n2 = 0;
@@ -15,7 +16,17 @@ function divide(n1, n2){
     return n1 /= n2;
 }
 
+function addValues (number){
+    
+}
+
 function operate(n1, operator, n2){
+    const numbers = {
+        currentValue: n1,
+        op: operator,
+        processValue: n2,
+    }
+
     if(operator === "+"){
         add(n1, n2)
     }
@@ -54,10 +65,12 @@ function createButtons(amount) {
     for (let i = 0; i < amount; i++) {
     const button = document.createElement('button');
     button.textContent = values[i];
+    button.setAttribute('id', button.textContent);
     button.style.cssText =
         'border: 1px solid black; border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer;';
-    button.addEventListener('click',function (){
-        operate()
+    button.addEventListener('click', () => {
+        inputString += button.textContent.trim();
+        console.log(inputString);
     });
       buttonsDisplay.appendChild(button);
     }
