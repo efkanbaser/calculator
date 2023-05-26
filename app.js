@@ -48,10 +48,12 @@ function createButtons(amount) {
       'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px 5px 20px 5px; border-radius: 5px;';
     buttonsDisplay.appendChild(deleteButton);
   
+    const values = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '.', '0', '=', '+']
+
     // Create grid of buttons
     for (let i = 0; i < amount; i++) {
       const box = document.createElement('button');
-      box.setAttribute('class', 'circle');
+      box.textContent = values[i];
       box.style.cssText =
         'border: 1px solid black; border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;';
       buttonsDisplay.appendChild(box);
