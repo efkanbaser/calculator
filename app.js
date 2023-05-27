@@ -2,6 +2,7 @@ let inputString = "";
 let operator = "";
 let n1 = 0;
 let n2 = 0;
+let matchResult = inputString.match(/\d+/)
 
 function add(n1, n2){
     return n1 += n2;
@@ -21,12 +22,6 @@ function addValues (number){
 }
 
 function operate(n1, operator, n2){
-    const numbers = {
-        currentValue: n1,
-        op: operator,
-        processValue: n2,
-    }
-
     if(operator === "+"){
         add(n1, n2)
     }
@@ -69,8 +64,23 @@ function createButtons(amount) {
     button.style.cssText =
         'border: 1px solid black; border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer;';
     button.addEventListener('click', () => {
-        inputString += button.textContent.trim();
-        console.log(inputString);
+        inputString += button.textContent;
+        if(button.textContent == "+" ||button.textContent == "/" ||button.textContent == "*" ||button.textContent == "-") {
+        if(n1 == 0){
+        n1 = parseInt(inputString.slice(0, length-1));
+        }
+        else if(n1 != 0){
+        n2 = parseInt(inputString.slice(0, length-1));
+        }
+        operator = inputString.replace(/\d+/, '');
+        inputString = ""
+        if(n1 != 0 && n2 != 0){
+            operate()
+        }
+        }
+        console.log(n1)
+        console.log(n2)
+        console.log(operator)
     });
       buttonsDisplay.appendChild(button);
     }
