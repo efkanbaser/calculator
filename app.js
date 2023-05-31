@@ -84,7 +84,10 @@ function createButtons(amount) {
         n2 = parseInt(inputString.slice(0, inputString.length-1));
         inputString = ""
         operate(n1, n2, operator);
-        console.log(result);
+        if(result > 0){
+            n1 = result;
+        }
+        document.getElementById("result").innerHTML = result;
         }
     });
       buttonsDisplay.appendChild(button);
