@@ -41,6 +41,10 @@ function updateResult(){
     document.getElementById("result").innerHTML = result;
 }
 
+function updateInput(){
+    document.getElementById("input").innerHTML = inputString;
+}
+
 function createButtons(amount) {
     const buttonsDisplay = document.getElementById('buttons');
   
@@ -74,11 +78,14 @@ function createButtons(amount) {
     btn.setAttribute('id', btn.textContent);
     btn.style.cssText =
      'border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer; background-color: rgb(250, 221, 161); color: rgb(67, 96, 179); font-weight: bold; font-size: 20px;border: 3px solid rgb(95, 43, 0);}';
-     btn.addEventListener('mousedown', () => {
+     /*btn.addEventListener('mousedown', () => {
         btn.style.border = '3px solid black;'
-     })
+     })*/
+
+     //Buttons desperately need animations.
     btn.addEventListener('click', () => {
         inputString += btn.textContent;
+        updateInput();
         if(btn.textContent == "+" ||btn.textContent == "/" ||btn.textContent == "*" ||btn.textContent == "-"){
 
         if(n1 == 0){
@@ -113,3 +120,4 @@ function createButtons(amount) {
   /*update the display so user can see their inputs in bottom side, and outputs in upper side*/
   createButtons(16);
   updateResult();
+  updateInput();
