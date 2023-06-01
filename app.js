@@ -36,6 +36,11 @@ function operate(n1, n2, operator){
         divide(n1, n2)
     }
 }
+
+function updateResult(){
+    document.getElementById("result").innerHTML = result;
+}
+
 function createButtons(amount) {
     const buttonsDisplay = document.getElementById('buttons');
   
@@ -45,6 +50,11 @@ function createButtons(amount) {
     clearButton.textContent = 'Clear';
     clearButton.style.cssText =
       'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px;border-radius: 5px;cursor: pointer;';
+    clearButton.addEventListener('click', () => {
+        n1, n2, result = 0;
+        inputString, operator = "";
+        updateResult();
+    })
     buttonsDisplay.appendChild(clearButton);
   
     // Create delete button
@@ -87,11 +97,14 @@ function createButtons(amount) {
         if(result > 0){
             n1 = result;
         }
-        document.getElementById("result").innerHTML = result;
+        updateResult();
         }
     });
       buttonsDisplay.appendChild(button);
     }
   }
+  /* add a statement that leads to a result if
+  person clicks on an operator multiple times*/
   
   createButtons(16);
+  updateResult();
