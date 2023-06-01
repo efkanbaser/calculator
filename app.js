@@ -62,21 +62,21 @@ function createButtons(amount) {
     deleteButton.setAttribute('id', 'deleteButton');
     deleteButton.textContent = 'Delete';
     deleteButton.style.cssText =
-      'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px 5px 20px 5px; border-radius: 5px;cursor: pointer;';
+     'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px 5px 20px 5px; border-radius: 5px;cursor: pointer;';
     buttonsDisplay.appendChild(deleteButton);
   
     const values = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '.', '0', '=', '+']
 
     // Create grid of buttons
     for (let i = 0; i < amount; i++) {
-    const button = document.createElement('button');
-    button.textContent = values[i];
-    button.setAttribute('id', button.textContent);
-    button.style.cssText =
-        'border: 1px solid black; border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer;';
-    button.addEventListener('click', () => {
-        inputString += button.textContent;
-        if(button.textContent == "+" ||button.textContent == "/" ||button.textContent == "*" ||button.textContent == "-"){
+    const btn = document.createElement('button');
+    btn.textContent = values[i];
+    btn.setAttribute('id', btn.textContent);
+    btn.style.cssText =
+     'border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer;';
+    btn.addEventListener('click', () => {
+        inputString += btn.textContent;
+        if(btn.textContent == "+" ||btn.textContent == "/" ||btn.textContent == "*" ||btn.textContent == "-"){
 
         if(n1 == 0){
         n1 = parseInt(inputString.slice(0, inputString.length-1));
@@ -90,7 +90,7 @@ function createButtons(amount) {
         inputString = ""
         }
 
-        else if(button.textContent == "="){
+        else if(btn.textContent == "="){
         n2 = parseInt(inputString.slice(0, inputString.length-1));
         inputString = ""
         operate(n1, n2, operator);
@@ -100,11 +100,13 @@ function createButtons(amount) {
         updateResult();
         }
     });
-      buttonsDisplay.appendChild(button);
+      buttonsDisplay.appendChild(btn);
     }
   }
+
   /* add a statement that leads to a result if
   person clicks on an operator multiple times*/
-  
+
+  /*update the display so user can see their inputs in bottom side, and outputs in upper side*/
   createButtons(16);
   updateResult();

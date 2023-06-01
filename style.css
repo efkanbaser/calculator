@@ -10,7 +10,6 @@ body {
 
 .content {
     display: flex;
-    /*align-items: center;*/
     flex-direction: column;
     flex-wrap: wrap;
     border: 1px solid black;
@@ -27,9 +26,12 @@ body {
     margin-left: 25px;
     margin-bottom: 20px;
     border-radius: 5px;
+
+    /*these values place the number in bottom left corner of results display*/
     display: flex;
     align-items: end;
     flex-direction: column-reverse;
+
     /* change px values to vh values for consistent designs */
     /*add display flex to display results in wherever you want*/
 }
