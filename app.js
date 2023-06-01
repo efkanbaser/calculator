@@ -49,7 +49,7 @@ function createButtons(amount) {
     clearButton.setAttribute('id', 'clearButton');
     clearButton.textContent = 'Clear';
     clearButton.style.cssText =
-      'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px;border-radius: 5px;cursor: pointer;';
+      'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px;border-radius: 5px;cursor: pointer; background-color: rgb(250, 221, 161); color: rgb(67, 96, 179); font-weight: bold; font-size: 20px;border: 3px solid rgb(95, 43, 0);}';
     clearButton.addEventListener('click', () => {
         n1, n2, result = 0;
         inputString, operator = "";
@@ -62,7 +62,7 @@ function createButtons(amount) {
     deleteButton.setAttribute('id', 'deleteButton');
     deleteButton.textContent = 'Delete';
     deleteButton.style.cssText =
-     'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px 5px 20px 5px; border-radius: 5px;cursor: pointer;';
+     'width: calc((100% / 4) * 2 - 10px); height: 50px; margin: 5px 5px 20px 5px; border-radius: 5px;cursor: pointer; background-color: rgb(250, 221, 161); color: rgb(67, 96, 179); font-weight: bold; font-size: 20px;border: 3px solid rgb(95, 43, 0);}';
     buttonsDisplay.appendChild(deleteButton);
   
     const values = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '.', '0', '=', '+']
@@ -73,7 +73,10 @@ function createButtons(amount) {
     btn.textContent = values[i];
     btn.setAttribute('id', btn.textContent);
     btn.style.cssText =
-     'border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer;';
+     'border-radius: 10px; width: calc((100% / 4) - 10px); height: 50px; margin: 5px 5px 10px 5px;cursor: pointer; background-color: rgb(250, 221, 161); color: rgb(67, 96, 179); font-weight: bold; font-size: 20px;border: 3px solid rgb(95, 43, 0);}';
+     btn.addEventListener('mousedown', () => {
+        btn.style.border = '3px solid black;'
+     })
     btn.addEventListener('click', () => {
         inputString += btn.textContent;
         if(btn.textContent == "+" ||btn.textContent == "/" ||btn.textContent == "*" ||btn.textContent == "-"){
